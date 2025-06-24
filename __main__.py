@@ -1,7 +1,9 @@
 from dotenv import load_dotenv
 import os
-import datetime
+from datetime import datetime, timedelta
+import time
 import feedparser
+import re
 from twilio.rest import Client
 
 load_dotenv()
@@ -14,33 +16,42 @@ my_number = os.getenv("MY_NUMBER")
 RSS_URL = os.getenv("RSS_URL")
 COURSE_CODE = os.getenv("COURSE_CODE")
 
-# fix sending all blogs
-def send_text_notification(blogs: list):
+def extract_id(url: str) -> int:
+    match = re.search(r'id=(\d+)', url)
+    if match:
+        number = match.group(1)
+        return int(number)
+    return None
+def send_text_notification(entry):
+    message = f"{entry.title} \nAuthor:{entry.author} \nLink: {entry.id}"
     client = Client(account_sid, auth_token)
 
-    for blog in blogs: 
-        client.messages.create(
-            body="Razvalio si kola, bolje vozi sledeci put",
-            from_=sender_number,
-            to=my_number
-        )
-
-# get all rss news
+    client.messages.create(
+        body=message,
+        from_=sender_number,
+        to=my_number
+    )
 def check_updates():
-    send_text_notification()
+    feed = feedparser.parse(RSS_URL)
+    now = datetime.now()
 
+    new_entries = []
 
-feed = feedparser.parse(RSS_URL)
+    for entry in feed.entries:
+        if hasattr(entry, "published_parsed"):
+            entry_time = datetime.fromtimestamp(time.mktime(entry.published_parsed))
+            if entry_time >= now - timedelta(days=3):
+                new_entries.append(entry)
 
-print(feed.entries[0].published_parsed)
-# print("Entry Title:", feed.entries[0].title)
-# print("Entry Published Date:", feed.entries[0].published)
-# print("Entry Summary:", feed.entries[0].summary)
+    print(new_entries)
+    for entry in new_entries:
+        send_text_notification(entry)
+
+check_updates()
 
 # while True:
-#     current_time = time.localtime()
-#     if current_time.tm_hour == 2 and current_time.tm_min == 0 and current_time.tm_sec == 0:
+#     now = datetime.now()
+#     if now.hour == 2 and now.minute == 0 and now.second == 0:
 #         check_updates()
-#     time.sleep(3600*24-10)
-#     break
+#     time.sleep(3600*24-2)
 

@@ -9,3 +9,20 @@ SENDER_NUMBER=
 MY_NUMBER=
 RSS_URL=
 ```
+
+entry object:
+
+```
+entry {
+    id: url (converted to int later)
+    title: string
+    summary: text
+    link: string
+    author: string
+    published: date
+}
+```
+
+TO-DO
+[] add better time tracking
+[] add tracking latest id
