@@ -27,5 +27,6 @@ TO-DO
 
 - [x] add better time tracking
 - [ ] add object of entry
-- [ ] add tracking latest id
+- [ ] add tracking latest id for extra sekurity
+- [ ] add database for users and sent notifications?
 - [ ] add unsubscribing?
