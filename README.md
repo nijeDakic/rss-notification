@@ -27,3 +27,4 @@ TO-DO
 
 - [ ] add better time tracking
 - [ ] add tracking latest id
+- [ ] add unsubscribing?
