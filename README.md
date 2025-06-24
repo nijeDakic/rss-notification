@@ -25,6 +25,6 @@ entry {
 
 TO-DO
 
-- [ ] add better time tracking
+- [x] add better time tracking
 - [ ] add tracking latest id
 - [ ] add unsubscribing?
