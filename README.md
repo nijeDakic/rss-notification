@@ -26,7 +26,11 @@ entry {
 TO-DO
 
 - [x] add better time tracking
-- [ ] add object of entry
+- [x] add object of entry
+- [x] add convert time from string util
+- [x] add custom refresh time
+- [ ] add better message function
+- [ ] add converting what rss fetch into entry object, as i need it
 - [ ] add tracking latest id for extra sekurity
 - [ ] add database for users and sent notifications?
 - [ ] add unsubscribing?
