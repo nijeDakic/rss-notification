@@ -2,6 +2,13 @@ from utils import extract_id
 import datetime
 
 class Entry:
+    id: int
+    title: str
+    link: str
+    author: str
+    date: datetime
+    summary: str
+
     def __init__(self, rss_entry):
         self.id = extract_id(rss_entry.id)
         self.title = rss_entry.title
