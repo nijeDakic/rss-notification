@@ -5,8 +5,9 @@ import time
 import feedparser
 from twilio.rest import Client
 from models import Entry
-from utils import sleep_until
+from utils import sleep_until, write_message
 
+# environment variables
 load_dotenv()
 RSS_URL = os.getenv("RSS_URL")
 COURSE_CODE = os.getenv("COURSE_CODE")
@@ -18,7 +19,7 @@ my_number = os.getenv("MY_NUMBER")
 
 
 def send_notification(entry: Entry) -> None:
-    message = f"{entry.title} \nAuthor:{entry.author} \nLink: {entry.id}"
+    message = write_message(entry)
     client = Client(account_sid, auth_token)
 
     client.messages.create(
@@ -41,8 +42,9 @@ def check_updates() -> None:
     for entry in new_entries:
         send_notification(entry)
 
+
 checkup_time = datetime.now()
-checkup_time = checkup_time.replace(second=checkup_time.second+10)
+checkup_time = checkup_time.replace(hour=18, minute=5, second=0, microsecond=0)
 
 while True:
     sleep_until(checkup_time)
