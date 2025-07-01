@@ -1,3 +1,3 @@
-from .sms_service import extract_id
+from .sms_service import send_notification
 
-__all__ = ["write_message"]
+__all__ = ["send_notification"]

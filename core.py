@@ -2,14 +2,14 @@ from datetime import datetime, timedelta
 import time
 import feedparser
 from models.entry import Entry
-from services.twilio_service import send_sms
+from services import send_sms
 from utils.formatting import write_message
 from config import Config
 
 def check_updates() -> None:
     feed = feedparser.parse(Config.RSS_URL)
     now = datetime.now()
-    new_entries = []
+    new_entries: list[Entry] = []
 
     for entry in feed.entries:
         if hasattr(entry, "published_parsed"):
