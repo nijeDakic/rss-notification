@@ -32,9 +32,15 @@ entry {
 - [x] add better message function
 - [ ] add converting what rss fetch into entry object, as i need it
 - [ ] fix sleep function to just compare time during the day without dates
+- [ ] fix requirements.txt, i installed it outside of venv
 
 ### OPTIONAL
 
+- [ ] add preview text in message, this includes limiter on characters
 - [ ] add tracking latest id for extra sekurity
+
+### POTENTIAL
+
+- [ ] if there were tags, filters would be possible too
 - [ ] add database for users and sent notifications
 - [ ] add unsubscribing
