@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import time
 import feedparser
 from models.entry import Entry
-from services import send_sms
+from services import send_notification
 from utils.formatting import write_message
 from config import Config
 
@@ -19,4 +19,4 @@ def check_updates() -> None:
 
     for entry in new_entries:
         message = write_message(entry)
-        send_sms(message)
+        send_notification(message)
