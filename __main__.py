@@ -29,23 +29,25 @@ def send_notification(entry: Entry) -> None:
     )
 
 def check_updates() -> None:
-    feed = feedparser.parse(RSS_URL)
-    now = datetime.now()
-    new_entries = []
+    print("steva")
+    # feed = feedparser.parse(RSS_URL)
+    # now = datetime.now()
+    # new_entries = []
 
-    for entry in feed.entries:
-        if hasattr(entry, "published_parsed"):
-            entry_time = datetime.fromtimestamp(time.mktime(entry.published_parsed))
-            if entry_time >= now - timedelta(days=3):
-                new_entries.append(entry)
+    # for entry in feed.entries:
+    #     if hasattr(entry, "published_parsed"):
+    #         entry_time = datetime.fromtimestamp(time.mktime(entry.published_parsed))
+    #         if entry_time >= now - timedelta(days=3):
+    #             new_entries.append(entry)
 
-    for entry in new_entries:
-        send_notification(entry)
+    # for entry in new_entries:
+    #     send_notification(entry)
 
 
 checkup_time = datetime.now()
-checkup_time = checkup_time.replace(hour=18, minute=5, second=0, microsecond=0)
+checkup_time = checkup_time.replace(hour=5, minute=9, second=0, microsecond=0)
 
 while True:
     sleep_until(checkup_time)
-    check_updates()
+    print("steva")
+    # check_updates()

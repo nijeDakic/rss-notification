@@ -23,7 +23,7 @@ entry {
 }
 ```
 
-TO-DO
+## TO-DO
 
 - [x] add better time tracking
 - [x] add object of entry
@@ -31,6 +31,10 @@ TO-DO
 - [x] add custom refresh time
 - [x] add better message function
 - [ ] add converting what rss fetch into entry object, as i need it
+- [ ] fix sleep function to just compare time during the day without dates
+
+### OPTIONAL
+
 - [ ] add tracking latest id for extra sekurity
-- [ ] add database for users and sent notifications?
-- [ ] add unsubscribing?
+- [ ] add database for users and sent notifications
+- [ ] add unsubscribing

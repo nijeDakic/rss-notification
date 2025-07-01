@@ -1,6 +1,6 @@
-from models import Entry
+# from modules import Entry
 
-def write_message(entry: Entry) -> str:
+def write_message(entry) -> str: #: Entry
     message = f'''
     📢 {entry.title}\n
     🕒 Објављено: {entry.date.strftime("%d. %m. %Y.")}, {entry.date.strftime("%H:%M")}\n

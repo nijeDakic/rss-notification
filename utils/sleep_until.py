@@ -5,7 +5,7 @@ def sleep_until(target_time: datetime) -> None:
     now = datetime.now()
 
     if now >= target_time:
-        print("⚠️ Target time is in the past. Skipping sleep.")
+        print("Target time is in the past. Skipping sleep.")
         return
 
     seconds_to_sleep = (target_time - now).total_seconds()
