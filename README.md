@@ -30,7 +30,7 @@ entry {
 - [x] add convert time from string util
 - [x] add custom refresh time
 - [x] add better message function
-- [ ] add converting what rss fetch into entry object, as i need it
+- [ ] convert what rss fetch into entry object, as i need it
 - [ ] fix sleep function to just compare time during the day without dates
 - [ ] fix requirements.txt, i installed it outside of venv
 
